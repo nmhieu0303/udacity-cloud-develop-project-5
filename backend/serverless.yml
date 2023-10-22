@@ -1,6 +1,7 @@
 org: nmhieu0303
 app: serverless-todo-app-nmhieu
 service: serverless-blog-app
+frameworkVersion: '3.35.2'
 
 plugins:
   - serverless-webpack
@@ -11,7 +12,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs14.x
-
+  profile: default
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
 
