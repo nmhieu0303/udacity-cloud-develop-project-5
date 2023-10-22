@@ -5,10 +5,12 @@ node_js:
 install:
   - npm install -g serverless
   - travis_retry npm install
+  - npm install
 
 before_install: cd backend
 
 script:
   - serverless config credentials --provider aws --key "$AWS_ACCESS_KEY_ID" --secret "$AWS_SECRET_KEY" --profile "$AWS_PROFILE"
   - serverless plugin install -n serverless-webpack
+  - serverless plugin install --name serverless-deployment-bucket
   - serverless deploy
